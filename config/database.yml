@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: "<%= ENV['DATABASE_PASS'] %>"
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
+
+development:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME'] %>
+
+test:
+  <<: *default
+  database: afip_test
+
+staging:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME'] %>

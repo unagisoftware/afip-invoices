@@ -1,0 +1,75 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:getPersonaResponse xmlns:ns2="http://a5.soap.ws.server.puc.sr/">
+      <personaReturn>
+        <datosGenerales>
+          <domicilioFiscal>
+            <codPostal>1900</codPostal>
+            <descripcionProvincia>BUENOS AIRES</descripcionProvincia>
+            <direccion>47 1421</direccion>
+            <idProvincia>1</idProvincia>
+            <localidad>LA PLATA NOROESTE CALLE 50</localidad>
+            <tipoDomicilio>FISCAL</tipoDomicilio>
+          </domicilioFiscal>
+          <estadoClave>ACTIVO</estadoClave>
+          <fechaContratoSocial>1986-06-18T12:00:00-03:00</fechaContratoSocial>
+          <idPersona>30611224849</idPersona>
+          <mesCierre>12</mesCierre>
+          <razonSocial>GALTEC SA</razonSocial>
+          <tipoClave>CUIT</tipoClave>
+          <tipoPersona>JURIDICA</tipoPersona>
+        </datosGenerales>
+        <datosRegimenGeneral>
+          <actividad>
+            <descripcionActividad>CONSTRUCCIÓN, REFORMA Y REPARACIÓN DE EDIFICIOS NO RESIDENCIALES</descripcionActividad>
+            <idActividad>410021</idActividad>
+            <nomenclador>883</nomenclador>
+            <orden>1</orden>
+            <periodo>201311</periodo>
+          </actividad>
+          <impuesto>
+            <descripcionImpuesto>GANANCIAS SOCIEDADES</descripcionImpuesto>
+            <idImpuesto>10</idImpuesto>
+            <periodo>198608</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>IVA</descripcionImpuesto>
+            <idImpuesto>30</idImpuesto>
+            <periodo>199002</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>REGIMENES DE INFORMACIÓN</descripcionImpuesto>
+            <idImpuesto>103</idImpuesto>
+            <periodo>200701</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>BP-ACCIONES O PARTICIPACIONES</descripcionImpuesto>
+            <idImpuesto>211</idImpuesto>
+            <periodo>200305</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>SICORE-IMPTO.A LAS GANANCIAS</descripcionImpuesto>
+            <idImpuesto>217</idImpuesto>
+            <periodo>200001</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>EMPLEADOR-APORTES SEG. SOCIAL</descripcionImpuesto>
+            <idImpuesto>301</idImpuesto>
+            <periodo>198701</periodo>
+          </impuesto>
+          <regimen>
+            <descripcionRegimen>PROFESIONES LIBERALES, SINDICOS Y DIRECTOR DE SOCIEDAD ANONIMA.</descripcionRegimen>
+            <idImpuesto>217</idImpuesto>
+            <idRegimen>116</idRegimen>
+            <periodo>200001</periodo>
+            <tipoRegimen>RETENCION</tipoRegimen>
+          </regimen>
+        </datosRegimenGeneral>
+        <metadata>
+          <fechaHora>2018-09-28T17:52:59.719-03:00</fechaHora>
+          <servidor>aws.afip.gov.ar</servidor>
+        </metadata>
+      </personaReturn>
+    </ns2:getPersonaResponse>
+  </soap:Body>
+</soap:Envelope>

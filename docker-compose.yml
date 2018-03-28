@@ -1,0 +1,32 @@
+version: '3.0'
+services:
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+      POSTGRES_DB: afip_development
+    volumes:
+      - postgres:/data/postgres
+    restart: unless-stopped
+  redis:
+    image: 'redis:5-alpine'
+    command: redis-server
+    volumes:
+      - 'redis:/data'
+  app:
+    build: .
+    volumes:
+      - ./app:/app/app
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+    env_file:
+    - .env
+volumes:
+  redis:
+  postgres:
+    external:
+      name: postgres-factura

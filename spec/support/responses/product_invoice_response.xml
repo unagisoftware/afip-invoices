@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <soap:Header>
+    <FEHeaderInfo xmlns="http://ar.gov.afip.dif.FEV1/">
+      <ambiente>Homologacion - efa</ambiente>
+      <fecha>2018-11-26T12:55:29.863155-03:00</fecha>
+      <id>2.12.5.0</id>
+    </FEHeaderInfo>
+  </soap:Header>
+  <soap:Body>
+    <FECompConsultarResponse xmlns="http://ar.gov.afip.dif.FEV1/">
+      <FECompConsultarResult>
+        <ResultGet>
+          <Concepto>1</Concepto>
+          <DocTipo>80</DocTipo>
+          <DocNro>20379452257</DocNro>
+          <CbteDesde>1</CbteDesde>
+          <CbteHasta>1</CbteHasta>
+          <CbteFch>20181127</CbteFch>
+          <ImpTotal>12899.55</ImpTotal>
+          <ImpTotConc>2000</ImpTotConc>
+          <ImpNeto>5650</ImpNeto>
+          <ImpOpEx>3000</ImpOpEx>
+          <ImpTrib>1000.8</ImpTrib>
+          <ImpIVA>1248.75</ImpIVA>
+          <FchServDesde/>
+          <FchServHasta/>
+          <FchVtoPago/>
+          <MonId>PES</MonId>
+          <MonCotiz>1</MonCotiz>
+          <Tributos>
+            <Tributo>
+              <Id>6</Id>
+              <Desc/>
+              <BaseImp>6000</BaseImp>
+              <Alic>16.68</Alic>
+              <Importe>1000.8</Importe>
+            </Tributo>
+          </Tributos>
+          <Iva>
+            <AlicIva>
+              <Id>4</Id>
+              <BaseImp>950</BaseImp>
+              <Importe>99.75</Importe>
+            </AlicIva>
+            <AlicIva>
+              <Id>5</Id>
+              <BaseImp>2000</BaseImp>
+              <Importe>420</Importe>
+            </AlicIva>
+            <AlicIva>
+              <Id>6</Id>
+              <BaseImp>2700</BaseImp>
+              <Importe>729</Importe>
+            </AlicIva>
+          </Iva>
+          <Resultado>A</Resultado>
+          <CodAutorizacion>68486700848308</CodAutorizacion>
+          <EmisionTipo>CAE</EmisionTipo>
+          <FchVto>20181207</FchVto>
+          <FchProceso>20181126124836</FchProceso>
+          <Observaciones>
+            <Obs>
+              <Code>10063</Code>
+              <Msg>Factura (CbteDesde igual a CbteHasta), DocTipo, DocNro, no se encuentra inscripto en condicion ACTIVA en el impuesto (IVA).</Msg>
+            </Obs>
+          </Observaciones>
+          <PtoVta>1</PtoVta>
+          <CbteTipo>4</CbteTipo>
+        </ResultGet>
+      </FECompConsultarResult>
+    </FECompConsultarResponse>
+  </soap:Body>
+</soap:Envelope>
