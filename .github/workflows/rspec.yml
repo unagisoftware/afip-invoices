@@ -1,0 +1,52 @@
+name: Test - Rspec
+on: pull_request
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    services:
+      postgres:
+        image: postgres:13-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: afip_test
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.4
+        bundler-cache: true
+    - name: Install dependencies and run RSpec
+      env:
+        AUTH_TOKEN: aaaaaa-bbbbb-ccccc-ddddd
+        DATABASE_HOST: localhost
+        DATABASE_USER: postgres
+        DATABASE_PASS: postgres
+        RAILS_ENV: test
+        SECRET_KEY_BASE: "abcdef"
+        ENCRYPTION_SERVICE_SALT: ",A3\x89\xA8\x19k\"\e[\xD8\x02\x9BK\xF5\xB2^\xC8\xDF\x8F\xAF\x84P\xB1\xFB\xA99\xA9\x16\xFA\xD5 "
+        LOGIN_URL: ${{ secrets.LOGIN_URL }}
+        WSFE_URL: ${{ secrets.WSFE_URL }}
+        PADRON_A5_URL: ${{ secrets.PADRON_A5_URL }}
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+        bundle exec rspec
+    - uses: actions/upload-artifact@v2
+      with:
+        name: "Test Coverage"
+        path: coverage/

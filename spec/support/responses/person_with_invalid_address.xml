@@ -1,0 +1,18 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:getPersonaResponse xmlns:ns2="http://a5.soap.ws.server.puc.sr/">
+      <personaReturn>
+        <errorConstancia>
+          <apellido>VICTORIA CAROLINA</apellido>
+          <error>Estado erroneo del domicilio</error>
+          <idPersona>20201797064</idPersona>
+          <nombre>DARIO</nombre>
+        </errorConstancia>
+        <metadata>
+          <fechaHora>2018-10-03T11:11:27.129-03:00</fechaHora>
+          <servidor>awshomo.afip.gov.ar</servidor>
+        </metadata>
+      </personaReturn>
+    </ns2:getPersonaResponse>
+  </soap:Body>
+</soap:Envelope>

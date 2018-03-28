@@ -1,0 +1,53 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:getPersonaResponse xmlns:ns2="http://a5.soap.ws.server.puc.sr/">
+      <personaReturn>
+        <datosGenerales>
+          <apellido>RAZONAR</apellido>
+          <domicilioFiscal>
+            <codPostal>4500</codPostal>
+            <descripcionProvincia>JUJUY</descripcionProvincia>
+            <direccion>SAN MARTIN 8</direccion>
+            <idProvincia>6</idProvincia>
+            <localidad>ALTO DE LA LOMA</localidad>
+            <tipoDomicilio>FISCAL</tipoDomicilio>
+          </domicilioFiscal>
+          <estadoClave>ACTIVO</estadoClave>
+          <idPersona>20188192514</idPersona>
+          <mesCierre>12</mesCierre>
+          <nombre>MARTINCHUS</nombre>
+          <tipoClave>CUIT</tipoClave>
+          <tipoPersona>FISICA</tipoPersona>
+        </datosGenerales>
+        <datosRegimenGeneral>
+          <actividad>
+            <descripcionActividad>CULTIVO DE MANZANA Y PERA</descripcionActividad>
+            <idActividad>12311</idActividad>
+            <nomenclador>883</nomenclador>
+            <orden>1</orden>
+            <periodo>201311</periodo>
+          </actividad>
+          <impuesto>
+            <descripcionImpuesto>GANANCIAS PERSONAS FISICAS</descripcionImpuesto>
+            <idImpuesto>11</idImpuesto>
+            <periodo>200606</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>GANANCIA MINIMA PRESUNTA</descripcionImpuesto>
+            <idImpuesto>25</idImpuesto>
+            <periodo>201101</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>IVA</descripcionImpuesto>
+            <idImpuesto>30</idImpuesto>
+            <periodo>200606</periodo>
+          </impuesto>
+        </datosRegimenGeneral>
+        <metadata>
+          <fechaHora>2018-10-03T11:13:27.139-03:00</fechaHora>
+          <servidor>awshomo.afip.gov.ar</servidor>
+        </metadata>
+      </personaReturn>
+    </ns2:getPersonaResponse>
+  </soap:Body>
+</soap:Envelope>

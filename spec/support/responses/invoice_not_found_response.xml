@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <soap:Header>
+    <FEHeaderInfo xmlns="http://ar.gov.afip.dif.FEV1/">
+      <ambiente>Homologacion - efa</ambiente>
+      <fecha>2019-04-30T22:05:59.6839025-03:00</fecha>
+      <id>2.12.24.0</id>
+    </FEHeaderInfo>
+  </soap:Header>
+  <soap:Body>
+    <FECompConsultarResponse xmlns="http://ar.gov.afip.dif.FEV1/">
+      <FECompConsultarResult>
+        <Errors>
+          <Err>
+            <Code>602</Code>
+            <Msg>No existen datos en nuestros registros para los parametros ingresados.</Msg>
+          </Err>
+        </Errors>
+      </FECompConsultarResult>
+    </FECompConsultarResponse>
+  </soap:Body>
+</soap:Envelope>

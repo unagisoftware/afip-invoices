@@ -1,0 +1,75 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:getPersonaResponse xmlns:ns2="http://a5.soap.ws.server.puc.sr/">
+      <personaReturn>
+        <datosGenerales>
+          <apellido>ARGÜELLO</apellido>
+          <domicilioFiscal>
+            <codPostal>1900</codPostal>
+            <descripcionProvincia>BUENOS AIRES</descripcionProvincia>
+            <direccion>47 1421</direccion>
+            <idProvincia>1</idProvincia>
+            <localidad>LA PLATA NOROESTE CALLE 50</localidad>
+            <tipoDomicilio>FISCAL</tipoDomicilio>
+          </domicilioFiscal>
+          <estadoClave>ACTIVO</estadoClave>
+          <idPersona>20221124643</idPersona>
+          <mesCierre>12</mesCierre>
+          <nombre>ALFREDO OSCAR</nombre>
+          <tipoClave>CUIT</tipoClave>
+          <tipoPersona>FISICA</tipoPersona>
+        </datosGenerales>
+        <datosMonotributo>
+          <categoriaMonotributo>
+            <descripcionCategoria>F LOCACIONES DE SERVICIO</descripcionCategoria>
+            <idCategoria>40</idCategoria>
+            <idImpuesto>20</idImpuesto>
+            <periodo>201701</periodo>
+          </categoriaMonotributo>
+          <impuesto>
+            <descripcionImpuesto>MONOTRIBUTO</descripcionImpuesto>
+            <idImpuesto>20</idImpuesto>
+            <periodo>201106</periodo>
+          </impuesto>
+        </datosMonotributo>
+        <datosRegimenGeneral>
+          <actividad>
+            <descripcionActividad>CULTIVO DE VID PARA VINIFICAR</descripcionActividad>
+            <idActividad>12110</idActividad>
+            <nomenclador>883</nomenclador>
+            <orden>2</orden>
+            <periodo>201311</periodo>
+          </actividad>
+          <actividad>
+            <descripcionActividad>ELABORACIÓN DE VINOS</descripcionActividad>
+            <idActividad>110212</idActividad>
+            <nomenclador>883</nomenclador>
+            <orden>3</orden>
+            <periodo>201707</periodo>
+          </actividad>
+          <actividad>
+            <descripcionActividad>SERVICIOS DE PRÁCTICAS DE DIAGNÓSTICO POR IMÁGENES</descripcionActividad>
+            <idActividad>863120</idActividad>
+            <nomenclador>883</nomenclador>
+            <orden>1</orden>
+            <periodo>201402</periodo>
+          </actividad>
+          <impuesto>
+            <descripcionImpuesto>REGIMENES DE INFORMACIÓN</descripcionImpuesto>
+            <idImpuesto>103</idImpuesto>
+            <periodo>201112</periodo>
+          </impuesto>
+          <impuesto>
+            <descripcionImpuesto>APORTES SEG.SOCIAL AUTONOMOS</descripcionImpuesto>
+            <idImpuesto>308</idImpuesto>
+            <periodo>201201</periodo>
+          </impuesto>
+        </datosRegimenGeneral>
+        <metadata>
+          <fechaHora>2018-10-03T12:21:03.098-03:00</fechaHora>
+          <servidor>awshomo.afip.gov.ar</servidor>
+        </metadata>
+      </personaReturn>
+    </ns2:getPersonaResponse>
+  </soap:Body>
+</soap:Envelope>
