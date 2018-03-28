@@ -1,0 +1,20 @@
+name: Rubocop
+on: pull_request
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.4
+        bundler-cache: true
+    - name: Install dependencies and run rubocop
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rubocop

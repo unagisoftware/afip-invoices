@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <soap:Body>
+    <FEParamGetPtosVentaResponse xmlns="http://ar.gov.afip.dif.FEV1/">
+      <FEParamGetPtosVentaResult>
+        <Errors>
+          <Err>
+            <Code>602</Code>
+            <Msg>Sin Resultados: - Metodo FEParamGetPtosVenta</Msg>
+          </Err>
+        </Errors>
+      </FEParamGetPtosVentaResult>
+    </FEParamGetPtosVentaResponse>
+  </soap:Body>
+</soap:Envelope>

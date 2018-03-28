@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <FEParamGetPtosVentaResponse xmlns="http://ar.gov.afip.dif.FEV1/">
+            <FEParamGetPtosVentaResult>
+                <ResultGet>
+                    <PtoVenta>
+                        <Nro>2</Nro>
+                        <EmisionTipo>CAE</EmisionTipo>
+                        <Bloqueado>N</Bloqueado>
+                        <FchBaja>NULL</FchBaja>
+                    </PtoVenta>
+
+                    <PtoVenta>
+                        <Nro>3</Nro>
+                        <EmisionTipo>CAE</EmisionTipo>
+                        <Bloqueado>N</Bloqueado>
+                        <FchBaja>20190108010858</FchBaja>
+                    </PtoVenta>
+                </ResultGet>
+            </FEParamGetPtosVentaResult>
+        </FEParamGetPtosVentaResponse>
+    </soap:Body>
+</soap:Envelope>

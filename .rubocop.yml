@@ -1,0 +1,45 @@
+require: rubocop-rails
+AllCops:
+  Exclude:
+    - 'db/migrate/*.rb'
+    - 'db/schema.rb'
+    - 'bin/*'
+    - 'config/**/*'
+    - 'test/**/*'
+    - 'spec/**/*'
+    - 'vendor/**/*'
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - app/pdfs/invoice_pdf.rb
+    - app/services/invoice/validator.rb
+Metrics/BlockLength:
+  Exclude:
+    - 'app/pdfs/*'
+Metrics/ClassLength:
+  Max: 150
+  Exclude:
+    - 'app/pdfs/*'
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - 'app/pdfs/*'
+Metrics/ParameterLists:
+  Max: 6
+Style/AsciiComments:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
