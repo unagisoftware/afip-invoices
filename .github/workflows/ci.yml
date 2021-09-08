@@ -1,0 +1,57 @@
+name: CI
+on: pull_request
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.4
+        bundler-cache: true
+    - name: Install dependencies and run rubocop
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rubocop
+  rspec:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    services:
+      postgres:
+        image: postgres:13-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: afip_test
+          POSTGRES_PASSWORD: root
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.4
+        bundler-cache: true
+    - name: Install dependencies and run RSpec
+      env:
+        DATABASE_HOST: 127.0.0.1
+        DATABASE_USER: "postgres"
+        DATABASE_PASS: "root"
+        RAILS_ENV: test
+        SECRET_KEY_BASE: "abcdef"
+        ENCRYPTION_SERVICE_SALT: ",A3\x89\xA8\x19k\"\e[\xD8\x02\x9BK\xF5\xB2^\xC8\xDF\x8F\xAF\x84P\xB1\xFB\xA99\xA9\x16\xFA\xD5 "
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+        bundle exec rspec
+    - uses: actions/upload-artifact@v2
+      with:
+        name: "Test Coverage"
+        path: coverage/
