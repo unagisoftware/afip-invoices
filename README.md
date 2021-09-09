@@ -1,3 +1,11 @@
+## Introducción
+
+Esta aplicación Rails resuelve la integración con los [web services de AFIP](https://www.afip.gob.ar/ws/) a través de una API JSON. Permite mediante la gestión de entidades facturadoras la posibilidad generar y listar comprobantes. El presente README tiene por finalidad introducir sobre las tecnologías utilizadas, la puesta en marcha, el proceso de deploy y algunos diagramas de flujo para entender el funcionamiento interno de la API.
+
+La aplicación está preparada para ser ejecutada tanto de forma tradicional como también utilizando Docker. A su vez, viene configurada con Capistrano lista para el deploy simplemente configurando algunas variables de entorno. Dentro de este README se decriben los comandos y las variables necesarias para tal propósito.
+
+Además de eso, este repositorio cuenta con una [wiki](https://github.com/unagisoftware/afip-invoices/wiki) en donde se puede encontar más información relacionada a entender el funcionamiento de la API.
+
 ## Documentación de endpoints
 
   [Ver documentación en Postman](https://documenter.getpostman.com/view/17046114/TzzHjXM3).
@@ -165,8 +173,8 @@ Podés revisar la [documentación dentro de Postman](https://learning.postman.co
 
 ### Crear un nuevo comprobante
 
-![Alta de comprobante](flowcharts/generar_comprobante.png?raw=true "New Invoice").
+![Alta de comprobante](flowcharts/generar_comprobante.png?raw=true "New Invoice")
 
 ### Autenticación contra la API de AFIP
 
-![Autenticación con AFIP](flowcharts/autenticacion_afip.png?raw=true "AFIP autentication").
+![Autenticación con AFIP](flowcharts/autenticacion_afip.png?raw=true "AFIP autentication")
