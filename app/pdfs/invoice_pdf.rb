@@ -206,7 +206,7 @@ class InvoicePdf < ToPdf
     bounding_box([0, stretchy_cursor], width: 260, height: 380) do
       display_items
 
-      display_note if @invoice.note?
+      display_note if @invoice.note.present?
 
       display_totals
     end
