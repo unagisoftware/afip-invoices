@@ -38,8 +38,8 @@ describe Invoice::Generator do
           emission_date: invoice_params[:created_at].to_date,
           logo_url: invoice.entity.logo.to_s,
           note: invoice_params[:note],
+          receipt: receipt_number,
           sale_point_id: invoice_params[:sale_point_id],
-          receipt: receipt_number
         )
       end
     end
@@ -143,8 +143,10 @@ describe Invoice::Generator do
         end
 
         it_behaves_like 'invoice response'
-        it_behaves_like 'invoice persistance', '0001-00000012'
         it_behaves_like 'AFIP request deletion'
+
+        it_behaves_like 'invoice persistance',
+          Invoice::FinderSupport::RESPONSE[:bill_number]
 
         it "returns a 'created' status for the invoice" do
           result = subject.call
@@ -186,9 +188,11 @@ describe Invoice::Generator do
           end
 
           it_behaves_like 'invoice response'
-          it_behaves_like 'invoice persistance', '0001-00000011'
           it_behaves_like 'AFIP invoice creation'
           it_behaves_like 'AFIP request deletion'
+
+          it_behaves_like 'invoice persistance',
+            Invoice::GeneratorSupport.next_bill_number
 
           it "returns a 'created' status for the invoice" do
             result = subject.call
@@ -244,7 +248,6 @@ describe Invoice::Generator do
       end
 
       context 'and it is not persisted nor previously enqueued' do
-
         let!(:last_bill_number_mock) do
           InvoicesServiceMock.mock(:last_bill_number)
         end
@@ -265,14 +268,15 @@ describe Invoice::Generator do
         end
 
         context 'and AFIP connection is successful' do
-          
           before do
             InvoicesServiceMock.mock(:create_invoice)
           end
 
           it_behaves_like 'invoice response'
-          it_behaves_like 'invoice persistance', '0001-00000011'
           it_behaves_like 'AFIP invoice creation'
+
+          it_behaves_like 'invoice persistance',
+            Invoice::GeneratorSupport.next_bill_number
 
           it "returns a 'created' status for the invoice" do
             result = subject.call
@@ -283,7 +287,7 @@ describe Invoice::Generator do
           it 'requests last bill number only once' do
             subject.call
 
-            expect(last_bill_number_mock).to have_been_requested.times(1)
+            expect(last_bill_number_mock).to have_been_requested.once
           end
         end
 
