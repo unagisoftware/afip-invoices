@@ -23,7 +23,7 @@ describe Invoice::Generator do
       end
     end
 
-    shared_examples 'invoice persistance' do
+    shared_examples 'invoice persistance' do |receipt_number|
       it 'persists the invoice' do
         invoice_params = build_invoice_params
 
@@ -38,6 +38,7 @@ describe Invoice::Generator do
           emission_date: invoice_params[:created_at].to_date,
           logo_url: invoice.entity.logo.to_s,
           note: invoice_params[:note],
+          receipt: receipt_number,
           sale_point_id: invoice_params[:sale_point_id],
         )
       end
@@ -142,8 +143,10 @@ describe Invoice::Generator do
         end
 
         it_behaves_like 'invoice response'
-        it_behaves_like 'invoice persistance'
         it_behaves_like 'AFIP request deletion'
+
+        it_behaves_like 'invoice persistance',
+          Invoice::FinderSupport::RESPONSE[:bill_number]
 
         it "returns a 'created' status for the invoice" do
           result = subject.call
@@ -161,11 +164,13 @@ describe Invoice::Generator do
           create(:afip_request, invoice_id_client: invoice_id_client)
         end
 
+        let!(:last_bill_number_mock) do
+          InvoicesServiceMock.mock(:last_bill_number)
+        end
+
         before do
           InvoicesServiceMock.mock(:invoice_not_found)
-          InvoicesServiceMock.mock(:last_bill_number)
           PeopleServiceMock.mock(:legal_person)
-
           mock_invoice_finder_with(response: nil)
         end
 
@@ -183,14 +188,22 @@ describe Invoice::Generator do
           end
 
           it_behaves_like 'invoice response'
-          it_behaves_like 'invoice persistance'
           it_behaves_like 'AFIP invoice creation'
           it_behaves_like 'AFIP request deletion'
+
+          it_behaves_like 'invoice persistance',
+            Invoice::GeneratorSupport.next_bill_number
 
           it "returns a 'created' status for the invoice" do
             result = subject.call
 
             expect(result.status).to eq(:created)
+          end
+
+          it 'requests last bill number only once' do
+            subject.call
+
+            expect(last_bill_number_mock).to have_been_requested.times(1)
           end
         end
 
@@ -235,9 +248,12 @@ describe Invoice::Generator do
       end
 
       context 'and it is not persisted nor previously enqueued' do
+        let!(:last_bill_number_mock) do
+          InvoicesServiceMock.mock(:last_bill_number)
+        end
+
         before do
           InvoicesServiceMock.mock(:create_invoice)
-          InvoicesServiceMock.mock(:last_bill_number)
           PeopleServiceMock.mock(:legal_person)
 
           mock_invoice_finder_with(response: nil)
@@ -257,13 +273,21 @@ describe Invoice::Generator do
           end
 
           it_behaves_like 'invoice response'
-          it_behaves_like 'invoice persistance'
           it_behaves_like 'AFIP invoice creation'
+
+          it_behaves_like 'invoice persistance',
+            Invoice::GeneratorSupport.next_bill_number
 
           it "returns a 'created' status for the invoice" do
             result = subject.call
 
             expect(result.status).to eq(:created)
+          end
+
+          it 'requests last bill number only once' do
+            subject.call
+
+            expect(last_bill_number_mock).to have_been_requested.once
           end
         end
 

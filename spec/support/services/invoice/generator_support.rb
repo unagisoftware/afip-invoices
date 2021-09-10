@@ -104,5 +104,21 @@ class Invoice
       sale_point_id: NilClass,
       token: NilClass,
     }.freeze
+
+    def self.next_bill_number
+      data = Hash.from_xml(
+        InvoicesServiceMock.mock(:last_bill_number).response.body,
+      ).dig(
+        'Envelope',
+        'Body',
+        'FECompUltimoAutorizadoResponse',
+        'FECompUltimoAutorizadoResult',
+      )
+
+      sale_point = data['PtoVta'].to_i
+      number = data['CbteNro'].to_i + 1
+
+      "#{format('%0004d', sale_point)}-#{format('%008d', number)}"
+    end
   end
 end

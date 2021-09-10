@@ -6,7 +6,7 @@ class Invoice
       concept_type_id: '3',
       recipient_type_id: '80',
       recipient_number: '20308769608',
-      bill_number: '0003-00000012',
+      bill_number: '0001-00000012',
       bill_type_id: '1',
       total_amount: '3170',
       untaxed_amount: '200',
