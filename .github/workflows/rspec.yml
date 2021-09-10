@@ -1,5 +1,10 @@
 name: Test - Rspec
-on: pull_request
+on:
+  pull_request:
+  pull_request_review:
+  push:
+    branches:
+      - main
 
 jobs:
   rspec:
