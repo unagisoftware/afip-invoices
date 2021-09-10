@@ -4,7 +4,7 @@ Esta aplicación Rails resuelve la integración con los [web services de AFIP](h
 
 La aplicación está preparada para ser ejecutada tanto de forma tradicional como también utilizando Docker. A su vez, viene configurada con Capistrano lista para el deploy simplemente configurando algunas variables de entorno. Dentro de este README se decriben los comandos y las variables necesarias para tal propósito.
 
-Además de eso, este repositorio cuenta con una [wiki](https://github.com/unagisoftware/afip-invoices/wiki) en donde se puede encontar más información relacionada a entender el funcionamiento de la API.
+Además de eso, este repositorio cuenta con una [wiki](https://github.com/unagisoftware/afip-invoices/wiki) en donde se puede encontrar más información relacionada a entender el funcionamiento de la API.
 
 ## Documentación de endpoints
 
@@ -14,7 +14,7 @@ Además de eso, este repositorio cuenta con una [wiki](https://github.com/unagis
 
 Los pasos de configuración esperan que las siguientes herramientas se instalen en el sistema:
 * Ruby 2.7.4.
-* Rails 6.1.4.
+* Rails 6.1.4.1.
 * PostgreSQL ([instalar con Docker](https://towardsdatascience.com/local-development-set-up-of-postgresql-with-docker-c022632f13ea)).
 
 ## Setup inicial
