@@ -15,11 +15,5 @@ module Auth
           Entity.all.find { |entity| entity.auth_token == @token }
         end
     end
-
-    private
-
-    def encryptor
-      ActiveSupport::MessageEncryptor.new(KEY)
-    end
   end
 end

@@ -5,6 +5,7 @@ require 'test_helper'
 describe ApplicationController, type: :controller do
   controller do
     def test_unauthorized; end
+    def test_invalid_token; end
 
     def test_record_not_found
       raise ActiveRecord::RecordNotFound
@@ -59,6 +60,7 @@ describe ApplicationController, type: :controller do
   before :each do
     routes.draw do
       get 'test_unauthorized' => 'anonymous#test_unauthorized'
+      get 'test_invalid_token' => 'anonymous#test_invalid_token'
       get 'test_record_not_found' => 'anonymous#test_record_not_found'
       get 'test_afip_invalid_request' => 'anonymous#test_afip_invalid_request'
       get 'test_afip_unsuccessful_response' => 'anonymous#test_afip_unsuccessful_response'
@@ -72,6 +74,18 @@ describe ApplicationController, type: :controller do
   context 'when no access token is provided for authentication' do
     it 'returns an HTTP 401 response' do
       get :test_unauthorized
+
+      expect(response).to have_http_status(:unauthorized)
+    end
+  end
+
+  context 'when invalid access token is provided for authentication' do
+    before do
+      request.headers['HTTP_AUTHORIZATION'] = "Token token=\"test\""
+    end
+
+    it 'returns an HTTP 401 response' do
+      get :test_invalid_token
 
       expect(response).to have_http_status(:unauthorized)
     end
