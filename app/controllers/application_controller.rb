@@ -24,6 +24,9 @@ class ApplicationController < ActionController::API
   rescue_from Afip::UnexpectedError,
     with: :render_external_api_error
 
+  rescue_from ActiveSupport::MessageEncryptor::InvalidMessage,
+    with: :render_invalid_token
+
   before_action :authenticate
 
   protected
@@ -43,6 +46,10 @@ class ApplicationController < ActionController::API
   end
 
   def request_http_token_authentication(_realm = 'Application', _msg = nil)
+    render_invalid_token
+  end
+
+  def render_invalid_token
     render json: { error: 'Token incorrecto' }, status: :unauthorized
   end
 
