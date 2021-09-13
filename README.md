@@ -6,6 +6,10 @@ La aplicación está preparada para ser ejecutada tanto de forma tradicional com
 
 Además de eso, este repositorio cuenta con una [wiki](https://github.com/unagisoftware/afip-invoices/wiki) en donde se puede encontrar más información relacionada a entender el funcionamiento de la API.
 
+## Contribuir
+
+Este es un proyecto open source, en el cual para que siga creciendo y mejorando necesitamos toda la ayuda posible. Nos podés ayudar desarrollando nuevas features, reportando errores, proponiendo ideas o simplemente siendo parte de la comunidad. En nuestra [guía de contribución](CONTRIBUTING.md) podés encontrar la información sobre cómo hacerlo.
+
 ## Documentación de endpoints
 
   [Ver documentación en Postman](https://documenter.getpostman.com/view/17046114/TzzHjXM3).
