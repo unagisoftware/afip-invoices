@@ -36,6 +36,7 @@ group :test do
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'should_not'
   gem 'simplecov', require: false
+  gem 'simplecov-lcov', require: false
   gem 'webmock'
 end
 
