@@ -1,5 +1,6 @@
-[![coverage](https://coveralls.io/repos/github/unagisoftware/afip-invoices/badge.svg?branch=master)](https://coveralls.io/github/unagisoftware/afip-invoices)
-[![rubocop](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml/badge.svg?event=push)](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml)
+[![Coverage Status](https://coveralls.io/repos/github/unagisoftware/afip-invoices/badge.svg?branch=main)](https://coveralls.io/github/unagisoftware/afip-invoices?branch=main)
+[![Rubocop Status](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml/badge.svg?event=push)](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml)
+
 ## Introducción
 
 Esta aplicación Rails resuelve la integración con los [web services de AFIP](https://www.afip.gob.ar/ws/) a través de una API JSON. Permite mediante la gestión de entidades facturadoras la posibilidad generar y listar comprobantes. El presente README tiene por finalidad introducir sobre las tecnologías utilizadas, la puesta en marcha, el proceso de deploy y algunos diagramas de flujo para entender el funcionamiento interno de la API.
