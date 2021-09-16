@@ -185,3 +185,15 @@ Podés revisar la [documentación dentro de Postman](https://learning.postman.co
 ### Autenticación contra la API de AFIP
 
 ![Autenticación con AFIP](flowcharts/autenticacion_afip.png?raw=true "AFIP autentication")
+
+
+Sobre Unagi
+----------------
+
+![unagi](https://unagi.com.ar/img/logo-nav.svg)
+
+`afip-invoices` fue creada y es mantenida por Unagi SAS. Los nombres y logos de Unagi son marcas registradas de Unagi SAS.
+
+Sentimos un orgullo inmenso por colaborar con la comunidad open source. Visitá [nuestra web](https://unagi.com.ar/en) para ver algunos de nuestros proyectos más recientes o [escribinos](mailto:info@unagi.com.ar?subject=[GitHub]%20afip-invoice%20) para diseñar, desarrollar y hacer crecer tu proyecto junto a nuestro equipo.
+
+[Blog](https://medium.com/unagi) | [Linkedin](https://www.linkedin.com/company/unagisoftware) | [Twitter](https://twitter.com/unagisoftware) | [Clutch](https://clutch.co/profile/unagi)
