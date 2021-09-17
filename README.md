@@ -187,9 +187,7 @@ Podés revisar la [documentación dentro de Postman](https://learning.postman.co
 
 ![Autenticación con AFIP](flowcharts/autenticacion_afip.png?raw=true "AFIP autentication")
 
-
-Sobre Unagi
-----------------
+## Sobre Unagi
 
 ![unagi](https://unagi.com.ar/img/logo-nav.svg)
 
