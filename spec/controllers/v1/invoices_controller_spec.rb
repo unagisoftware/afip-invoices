@@ -231,6 +231,14 @@ describe V1::InvoicesController, type: :controller do
 
   describe 'GET export' do
     context 'when a valid invoice token is received' do
+      shared_examples 'external information fetching' do
+        it 'fetches invoice information from external service' do
+          subject
+
+          afip_mocks.each { |mock| expect(mock).to have_been_requested }
+        end
+      end
+
       let(:invoice) { create(:invoice) }
 
       let!(:afip_mocks) do
@@ -257,11 +265,26 @@ describe V1::InvoicesController, type: :controller do
 
       it_behaves_like 'HTTP 200 response'
       it_behaves_like 'PDF response'
+      it_behaves_like 'external information fetching'
 
-      it 'fetches invoice information from external service' do
-        subject
+      context 'and invoice is a note with associated invoices' do
+        let!(:invoice) { create(:note) }
 
-        afip_mocks.each { |mock| expect(mock).to have_been_requested }
+        before do
+          create_list(:associated_invoice, 3, invoice: invoice)
+        end
+
+        it_behaves_like 'HTTP 200 response'
+        it_behaves_like 'PDF response'
+        it_behaves_like 'external information fetching'
+      end
+
+      context 'and invoice is an electronic credit invoice' do
+        let!(:invoice) { create(:electronic_credit_invoice) }
+
+        it_behaves_like 'HTTP 200 response'
+        it_behaves_like 'PDF response'
+        it_behaves_like 'external information fetching'
       end
     end
 
