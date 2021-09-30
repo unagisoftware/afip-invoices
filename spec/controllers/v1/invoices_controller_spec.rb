@@ -279,7 +279,7 @@ describe V1::InvoicesController, type: :controller do
         it_behaves_like 'external information fetching'
       end
 
-      context 'and invoice is a electronic credit invoice' do
+      context 'and invoice is an electronic credit invoice' do
         let!(:invoice) { create(:electronic_credit_invoice) }
 
         it_behaves_like 'HTTP 200 response'
