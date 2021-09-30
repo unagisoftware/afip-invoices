@@ -134,6 +134,26 @@ Correr el suguiente comando para correr los servicios (`app`, `postgresql` y `re
   docker-compose up
   ```
 
+## Caché en entorno de desarrollo
+
+Por cuestiones de optimización de consultas y de no invalidar credenciales de acceso provistas por la AFIP, la API cuenta con caché de información, la cual se invalida cada cierto tiempo en función del recurso que se almacene. Como la misma se encuentra deshabilitada por defecto en entorno de desarrollo, es necesario activarla con el siguiente comando:
+
+```bash
+bundle exec rails dev:cache
+```
+
+La salida del comando anterior tiene que ser la siguiente:
+
+```bash
+Development mode is now being cached.
+```
+
+En caso de que la salida sea esta otra, entonces es necesario volver a ejecutar el comando:
+
+```bash
+Development mode is no longer being cached.
+```
+
 ## Deploy con Capistrano
 
 La aplicación cuenta con la configuración necesaria para hacer deploy utilizando Capistrano. Para poder hacerlo funcionar, es necesario configurar algunas variables de entorno indicando parámetros relacionados a los servidores en donde se tiene que hacer el deploy. Por defecto, existentes configurados dos entornos: staging y producción.
