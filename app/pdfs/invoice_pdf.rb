@@ -173,6 +173,7 @@ class InvoicePdf < ToPdf
         field 'Ape. y Nom. / Razón Social', recipient[:name].upcase, size: 9
         field 'Domicilio', recipient[:full_address], size: 9
       end
+
       bounding_box([310, c], width: 230, height: 60) do
         move_down 10
         field 'Condición frente al IVA', recipient[:category], size: 9
@@ -195,7 +196,7 @@ class InvoicePdf < ToPdf
       "#{bill_type(invoice.bill_type_id)} #{invoice.receipt}"
     end
 
-    items.each { |string| string.gsub!('Factura', 'Fac') }
+    items.map! { |string| string.gsub('Factura', 'Fac') }
 
     field 'Comp. Asoc.', items.join(', '), size: 9
   end
