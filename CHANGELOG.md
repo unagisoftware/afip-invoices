@@ -4,6 +4,10 @@ Todo los cambios notables relacionados al proyecto serán documentados en este a
 El formato está basado el la guía de [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y seguimos [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2017-11-18
+### Security
+- Actualización de Puma por vulnerabilidad de seguridad
+
 ## [1.0.2] - 2017-09-30
 ### Added
 - Corrección de generación de PDF para notas de crédito
