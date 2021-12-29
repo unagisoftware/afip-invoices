@@ -1,4 +1,4 @@
-FROM ruby:2.7.4-slim-buster
+FROM ruby:2.7.5-slim-buster
 
 #to fix: SSL_connect returned=1 errno=0 state=error: dh key too small in OpenSSL
 RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/' /etc/ssl/openssl.cnf
