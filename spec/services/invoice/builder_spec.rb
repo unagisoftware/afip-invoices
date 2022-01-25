@@ -67,5 +67,25 @@ describe Invoice::Builder do
           .to eq(params[:associated_invoices].size)
       end
     end
+
+    context 'when no metric unit is provided for each item' do
+      before do
+        params[:items].each do |item|
+          item[:metric_unit] = nil
+        end
+      end
+
+      it 'builds invoice items with default unit' do
+        invoice = subject.call
+
+        expect(invoice.items).not_to be_empty
+        expect(invoice.items.size).to eq(params[:items].size)
+
+        invoice.items.each do |item|
+          expect(item[:metric_unit]).not_to be_blank
+          expect(item[:metric_unit]).to eq(Invoice::Creator::DEFAULT_ITEM_UNIT)
+        end
+      end
+    end
   end
 end
