@@ -55,7 +55,7 @@ class Invoice
         unit_price: item[:unit_price],
         quantity: item[:quantity] || 1,
         bonus_percentage: item[:bonus_percentage] || 0,
-        metric_unit: item[:metric_unit] || Invoice::Generator::DEFAULT_ITEM_UNIT,
+        metric_unit: item[:metric_unit] || Invoice::Creator::DEFAULT_ITEM_UNIT,
         iva_aliquot_id: item[:iva_aliquot_id],
       )
     end
