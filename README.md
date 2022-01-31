@@ -1,5 +1,5 @@
-[![Testing Status](https://github.com/unagisoftware/afip-invoices/actions/workflows/rspec.yml/badge.svg?event=push)](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml)
-[![Rubocop Status](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml/badge.svg?event=push)](https://github.com/unagisoftware/afip-invoices/actions/workflows/rspec.yml)
+[![Testing Status](https://github.com/unagisoftware/afip-invoices/actions/workflows/rspec.yml/badge.svg?event=push)](https://github.com/unagisoftware/afip-invoices/actions/workflows/rspec.yml)
+[![Rubocop Status](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml/badge.svg?event=push)](https://github.com/unagisoftware/afip-invoices/actions/workflows/rubocop.yml)
 [![Coverage Status](https://coveralls.io/repos/github/unagisoftware/afip-invoices/badge.svg?branch=main)](https://coveralls.io/github/unagisoftware/afip-invoices?branch=main)
 
 ## Introducción
