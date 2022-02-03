@@ -56,7 +56,7 @@ class AfipPersonRepresenter < OpenStruct
     end
 
     Rails.logger.warn 'No fue posible determinar la categoría de la persona. '\
-      "Respuesta recibida: #{JSON.dump(data)}"
+      "Respuesta recibida: #{::JSON.dump(data)}"
 
     nil
   end
