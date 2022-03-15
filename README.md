@@ -22,7 +22,7 @@ Este es un proyecto open source, en el cual para que siga creciendo y mejorando 
 
 Los pasos de configuración esperan que las siguientes herramientas se instalen en el sistema:
 * Ruby 2.7.5.
-* Rails 6.1.4.6.
+* Rails 6.1.4.7.
 * PostgreSQL ([instalar con Docker](https://towardsdatascience.com/local-development-set-up-of-postgresql-with-docker-c022632f13ea)).
 
 ## Setup inicial
