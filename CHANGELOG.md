@@ -4,6 +4,11 @@ Todo los cambios notables relacionados al proyecto serán documentados en este a
 El formato está basado el la guía de [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y seguimos [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] - 2022-03-15
+### Security
+- Actualización de Rails de 6.1.4.4 a 6.1.4.7
+- Actualización de varias dependencias con los últimos parches de seguridad
+
 ## [1.0.5] - 2022-02-03
 ### Fixed
 - Corrección de log de warning de obtención de categoría de persona de AFIP al intentar representarla en formato JSON
