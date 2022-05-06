@@ -25,7 +25,7 @@ set :pg_system_user, ENV['SERVER_PG_SYSTEM_USER']
 set :pg_system_db, ENV['SERVER_PG_SYSTEM_DB']
 set :puma_init_active_record, true
 
-set :rbenv_ruby, '2.7.5'
+set :rbenv_ruby, '2.7.6'
 
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 set :keep_releases, 5
