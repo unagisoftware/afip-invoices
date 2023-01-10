@@ -4,6 +4,13 @@ Todo los cambios notables relacionados al proyecto serán documentados en este a
 El formato está basado el la guía de [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y seguimos [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1] - 2023-01-10
+### Added
+- Agregado de licencia MIT
+### Security
+- Actualización de Rails de 6.1.5.1 a 6.1.7
+- Actualización de varias dependencias con los últimos parches de seguridad
+
 ## [1.0.7] - 2022-05-06
 ### Security
 - Actualización de Ruby de 2.7.5 a 2.7.6
