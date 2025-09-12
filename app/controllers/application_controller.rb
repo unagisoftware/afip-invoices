@@ -27,7 +27,11 @@ class ApplicationController < ActionController::API
   rescue_from ActiveSupport::MessageEncryptor::InvalidMessage,
     with: :render_invalid_token
 
-  before_action :authenticate
+  before_action :authenticate, except: [:up]
+
+  def up
+    render json: {}, status: 200
+  end
 
   protected
 

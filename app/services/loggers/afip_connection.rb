@@ -18,6 +18,10 @@ module Loggers
 
       msg = msg.to_json if @json
 
+      puts "-------------------"
+      puts "Error: #{message}"
+      puts "-------------------"
+
       @logfile.error(msg)
     end
   end

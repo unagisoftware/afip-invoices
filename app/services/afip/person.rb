@@ -10,8 +10,9 @@ module Afip
     end
 
     def info
-      response = afip.call(:get_persona, message)
-      response = response[:get_persona_response][:persona_return]
+      response = afip.call(:get_persona_v2, message)
+
+      response = response[:get_persona_v2_response][:persona_return]
 
       raise_response_error(response) if response[:error_constancia].present?
 

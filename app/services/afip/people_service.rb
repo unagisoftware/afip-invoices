@@ -3,7 +3,7 @@
 module Afip
   class PeopleService < Middleware
     ENDPOINT = ENV['PADRON_A5_URL']
-    SERVICE  = 'ws_sr_padron_a5'
+    SERVICE  = 'ws_sr_constancia_inscripcion'
 
     private
 

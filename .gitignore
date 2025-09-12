@@ -25,7 +25,10 @@
 config/secrets.yml.key
 config/secrets.yml
 config/application.yml
-.env
+
+# Ignore all environment files.
+/.env*
+!/.env.sample
 
 /public/uploads/*
 

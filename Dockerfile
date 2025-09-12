@@ -1,4 +1,4 @@
-FROM ruby:2.7.6-slim-buster
+FROM ruby:2.7.6-slim-bullseye
 
 #to fix: SSL_connect returned=1 errno=0 state=error: dh key too small in OpenSSL
 RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/' /etc/ssl/openssl.cnf
@@ -23,13 +23,13 @@ ENV APP_HOME /app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-RUN gem install bundler:2.2.25
+RUN gem install bundler:2.3.3
 ADD Gemfile* $APP_HOME/
 RUN bundle install
 
 COPY . ./
 
-EXPOSE 3001
+EXPOSE 3000
 
 ENTRYPOINT ["/app/docker/docker-entrypoint.sh"]
 CMD ["rails", "server", "-b", "0.0.0.0"]

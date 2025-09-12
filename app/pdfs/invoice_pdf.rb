@@ -6,6 +6,8 @@ class InvoicePdf < ToPdf
   MINIMUN_POSITION_TO_DISPLAY_NOTE = 130
   MINIMUN_POSITION_TO_DISPLAY_TOTALS = 300
 
+  FINAL_CONSUMER_ID = '99'
+
   WIDTH = 540
   TOP = 725
 
@@ -391,6 +393,7 @@ class InvoicePdf < ToPdf
 
   def recipient
     return @recipient if @recipient.present?
+    @invoice.recipient = final_consumer_recipient if @invoice_finder[:recipient_type_id] == FINAL_CONSUMER_ID
 
     Invoice::RecipientLoader.new(@invoice).call(@invoice_finder[:recipient_number]) if @invoice.recipient.blank?
 
@@ -432,5 +435,17 @@ class InvoicePdf < ToPdf
 
   def bill_type(bill_type_id)
     StaticResource::BillTypes.new(@entity).find(bill_type_id)
+  end
+
+  def final_consumer_recipient
+    {
+      name: '',
+      zipcode: '',
+      address: '',
+      state: '',
+      city: '',
+      category: 'Consumidor Final',
+      full_address: '',
+    }
   end
 end

@@ -1,0 +1,74 @@
+# Name of your application. Used to uniquely configure containers.
+service: arca-ferreteria-scabuzzo
+
+# Name of the container image.
+image: fpscabuzzoarca/arca-api-services
+
+# Deploy to these servers.
+servers:
+  web:
+    - fpscabuzzo.ar
+  # job:
+  #   hosts:
+  #     - 192.168.0.1
+  #   cmd: bin/jobs
+
+proxy:
+  ssl: true
+  host: arca.fpscabuzzo.ar
+  app_port: 3000
+
+# Credentials for your image host.
+registry:
+  username:
+    - KAMAL_REGISTRY_USER
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64
+env:
+  clear:
+    DATABASE_HOST: arca-ferreteria-scabuzzo-db
+    DATABASE_NAME: arca_ferreteria_scabuzzo_production
+    RAILS_ENV: production
+  secret:
+    - DATABASE_USER
+    - DATABASE_PASS
+    - REDIS_URL
+    - AUTH_TOKEN
+    - ENCRYPTION_SERVICE_SALT
+    - HOST
+    - RAILS_LOG_TO_STDOUT
+    - SECRET_KEY_BASE
+    - WSFE_URL
+    - LOGIN_URL
+    - PADRON_A5_URL
+
+accessories:
+  db:
+    image: postgres:12.22
+    host: fpscabuzzo.ar
+    port: 5432
+    env:
+      clear:
+        POSTGRES_USER: 'postgres'
+      secret:
+        - POSTGRES_USER
+        - POSTGRES_PASSWORD
+    files:
+      - db/production.sql:/docker-entrypoint-initdb.d/init.sql
+    directories:
+      - data:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    host: fpscabuzzo.ar
+    volumes:
+      - redis-data:/data
+    port: 6379
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
